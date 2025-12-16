@@ -17,13 +17,13 @@ import java.util.List;
     // http://localhost:8080/categories
 // add annotation to allow cross site origin requests
 @RestController
-@RequestMapping("categories")
+@RequestMapping("/categories")
 @CrossOrigin
 
 public class CategoriesController {
 
-    private CategoryDao categoryDao;
-    private ProductDao productDao;
+    final private CategoryDao categoryDao;
+    final private ProductDao productDao;
 
     // create an Autowired controller to inject the categoryDao and ProductDao
     @Autowired
@@ -35,19 +35,19 @@ public class CategoriesController {
 
     // add the appropriate annotation for a get action
     @GetMapping("")
-    @PreAuthorize("PermitAll()")
+    @PreAuthorize("permitAll()")
     public List<Category> GetAll() {
         try {
             //find and return all Categories
             return categoryDao.getAllCategories();
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "3 Oops... our bad.");
         }
     }
 
     // add the appropriate annotation for a get action
     @GetMapping("{id}")
-    @PreAuthorize("PermitAll()")
+    @PreAuthorize("permitAll()")
     public Category getById(@PathVariable int id) {
         try {        // get the category by id
             var category = categoryDao.getById(id);
@@ -56,7 +56,7 @@ public class CategoriesController {
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
             return category;
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "4 Oops... our bad.");
         }
     }
 
@@ -68,30 +68,31 @@ public class CategoriesController {
         try {
             return productDao.listByCategoryId(categoryId);
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "5 Oops... our bad.");
         }
     }
 
     // add annotation to call this method for a POST action
     // add annotation to ensure that only an ADMIN can call this function
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Category addCategory(@RequestBody Category category) {
         try
         //todo code addCategory
         {
+            System.out.println("added the " + category.getName()+ "category");
+            return categoryDao.create(category) ;
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "6 Oops... our bad.");
         }
 
         // insert the category
-        return null;
     }
 
     // add annotation to call this method for a PUT (update) action - the url path must include the categoryId
     // add annotation to ensure that only an ADMIN can call this function
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void updateCategory(@PathVariable int id, @RequestBody Category category) {
         //todo update the category by id
         try
@@ -100,7 +101,7 @@ public class CategoriesController {
             }
             catch(Exception ex)
             {
-                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "7 Oops... our bad.");
             }
     }
 
@@ -117,7 +118,7 @@ public class CategoriesController {
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
             categoryDao.delete(id);
         } catch (Exception ex) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "8 Oops... our bad.");
         }
     }
 }

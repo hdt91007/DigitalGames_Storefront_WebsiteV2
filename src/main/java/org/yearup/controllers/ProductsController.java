@@ -41,7 +41,6 @@ public class ProductsController
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
-
     @GetMapping("{id}")
     @PreAuthorize("permitAll()")
     public Product getById(@PathVariable int id )
@@ -57,7 +56,7 @@ public class ProductsController
         }
         catch(Exception ex)
         {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "9 Oops... our bad.");
         }
     }
 
@@ -71,7 +70,7 @@ public class ProductsController
         }
         catch(Exception ex)
         {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "10 Oops... our bad.");
         }
     }
 
@@ -86,7 +85,7 @@ public class ProductsController
         }
         catch(Exception ex)
         {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "11 Oops... our bad.");
         }
     }
 
@@ -105,7 +104,7 @@ public class ProductsController
         }
         catch(Exception ex)
         {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "12 Oops... our bad.");
         }
     }
 }

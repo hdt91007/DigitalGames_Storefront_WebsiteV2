@@ -85,6 +85,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
             statement.setString(1, category.getName());
             statement.setString(2, category.getDescription());
 
+
             int rowsAffected = statement.executeUpdate();
 
             if (rowsAffected > 0) {
@@ -111,8 +112,8 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
     public void update(int categoryId, Category category)
     {
         String sql = "UPDATE categories" +
-                " SET name = ? " +
-                " SET Description = ? " +
+                " SET name = ? ," +
+                " description = ? " +
                 " WHERE categoryId = ?;";
 
         try (Connection connection = getConnection())
