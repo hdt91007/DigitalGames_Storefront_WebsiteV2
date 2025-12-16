@@ -81,7 +81,8 @@ public class ProductsController
     {
         try
         {
-            productDao.create(product);
+            productDao.update(id,product);
+          //todo double check and verify -productDao.create(product);
         }
         catch(Exception ex)
         {
