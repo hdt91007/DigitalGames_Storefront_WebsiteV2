@@ -101,7 +101,7 @@ public class CategoriesController {
             }
             catch(Exception ex)
             {
-                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "7 Oops... our bad.");
+                throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, " 7 Oops... our bad.");
             }
     }
 
