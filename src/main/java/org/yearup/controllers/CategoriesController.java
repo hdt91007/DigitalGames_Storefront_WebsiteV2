@@ -80,7 +80,7 @@ public class CategoriesController {
         try
         //todo code addCategory
         {
-            System.out.println("added the " + category.getName()+ "category");
+            System.out.println("added the " + category.getName()+ "category"); ;
             return categoryDao.create(category) ;
         } catch (Exception ex) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "6 Oops... our bad.");
@@ -97,6 +97,7 @@ public class CategoriesController {
         //todo update the category by id
         try
             {
+
                 categoryDao.update(id,category);
             }
             catch(Exception ex)
