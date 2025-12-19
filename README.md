@@ -2,7 +2,7 @@
 
 
 ## Description  
-The focus of this project was to work with an incomplete backend and api for a ficitonal videogame store by the name of DGS(Digital Games Storefront) to help with testing/bugfixing both the front end and back end of a website as well as build out certain functionality, Javascript, SQL, Postman, and SpringBoot
+The focus of this project was to work with an incomplete backend and api for a ficitonal videogame store by the name of DigitalGames to help with testing/bugfixing both the front end and back end of a website as well as build out certain functionality, Javascript, SQL, Postman, and SpringBoot
 
 ##  Features
 - **Varying Role Access**: Create, update, and delete products and categories for those with admin role, whereas users can search, and add products into customer carts for checkout.
